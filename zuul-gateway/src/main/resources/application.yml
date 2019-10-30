@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: routing-filtering-gateway
+  main:
+    allow-bean-definition-overriding: true
+zuul:
+  routes:
+    books:
+      url: http://localhost:8090
+#  ribbon:
+#    eager-load:
+#      enabled: true

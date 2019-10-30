@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: euraka-client
+  profiles:
+    active: unsecure
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+---
+spring:
+  profiles: unsecure
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+---
+spring:
+  profiles: secure
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka/ # HTTP basic authentication
+    enabled: true
+    healthcheck:
+      enabled: true
+  instance:
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    hostname: localhost
+    prefer-ip-address: true
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}

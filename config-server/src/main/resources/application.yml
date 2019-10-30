@@ -1,0 +1,15 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${HOME}/code/config-repo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
