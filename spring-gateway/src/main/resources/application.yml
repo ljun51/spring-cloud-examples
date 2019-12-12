@@ -1,10 +1,25 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: header
+---
+spring:
+  profiles: between
   cloud:
     gateway:
       routes:
         - id: between_route
           uri: https://httpbin.org
           predicates:
-            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2017-01-21T17:42:47.789-07:00[America/Denver]
+            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2020-01-21T17:42:47.789-07:00[America/Denver]
+---
+spring:
+  profiles: header
+  cloud:
+    gateway:
+      routes:
+        - id: header_toute
+          uri: https://httpbin.org
+          predicates:
+            - Header=X-Request-Id, \d+

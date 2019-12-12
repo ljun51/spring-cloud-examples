@@ -1,0 +1,25 @@
+server:
+  port: 6010
+spring:
+  application:
+    name: open-user
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  datasource:
+    druid:
+      url: 'jdbc:mysql://118.118.116.142:3306/open_user'
+      username: root
+      password: abc12366
+      driver-class-name: 'com.mysql.cj.jdbc.Driver'
+      initial-size: 1
+      min-idle: 1
+      max-active: 10
+  jpa:
+    show-sql: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # open nacos discovery

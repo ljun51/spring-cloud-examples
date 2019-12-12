@@ -29,6 +29,9 @@ hs_err_pid*
 .idea/
 .project
 .settings
-target
+.sts4-cache
+.vscode
 .DS_Store
+
+target
 

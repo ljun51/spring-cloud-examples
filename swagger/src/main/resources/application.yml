@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: swagger
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+---
+spring:
+  profiles: prod

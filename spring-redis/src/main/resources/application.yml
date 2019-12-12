@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-redis
+  redis:
+    sentinel:
+      password: abc12366
+      master: mymaster
+      nodes: "118.118.116.218:26379,118.118.116.218:26380,118.118.116.218:26381"

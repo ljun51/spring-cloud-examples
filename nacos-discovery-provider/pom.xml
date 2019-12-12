@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>io.github.ljun51</groupId>
-        <artifactId>spring-cloud-example</artifactId>
+        <artifactId>spring-cloud-examples</artifactId>
         <version>1.0</version>
     </parent>
 
     <artifactId>nacos-discovery-provider</artifactId>
-	<description>nacos服务配置</description>
+	<description>nacos 服务发现提供者</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

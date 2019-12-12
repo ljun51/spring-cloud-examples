@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * nacos 服务发现提供者
+ */
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ProviderApplication {

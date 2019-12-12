@@ -16,32 +16,39 @@
         <module>circuit-breaker</module>
         <module>ribbon</module>
         <module>zuul-gateway</module>
-        <module>spring-cloud-gateway</module>
         <module>mock-client</module>
-        <module>nacos-config-example</module>
         <module>nacos-gateway-provider</module>
         <module>nacos-gateway-discovery</module>
-        <module>nacos-discovery-spring-cloud-config-client</module>
-        <module>nacos-discovery-spring-cloud-config-server</module>
+        <module>nacos-config-client</module>
+        <module>nacos-config-server</module>
         <module>swagger</module>
         <module>nacos-discovery-provider</module>
+        <module>nacos-discovery-consumer</module>
         <module>sentinel-get-started</module>
         <module>oauth2-sso</module>
         <module>config-repo</module>
+        <module>spring-gateway</module>
         <module>spring-jta</module>
+        <module>spring-redis</module>
+        <module>java-modules</module>
+        <module>open-nacos-config</module>
+        <module>open-nacos-discovery</module>
+        <module>open-nacos-gateway</module>
+        <module>open-user</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
-        <!-- lookup parent from repository -->
+        <version>2.2.1.RELEASE</version>
+        <!-- lookup parent from mapper -->
         <!--<relativePath/>-->
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
+        <docker.image.prefix>ljun51</docker.image.prefix>
     </properties>
 
     <repositories>
@@ -57,7 +64,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.RC1</version>
+                <version>Hoxton.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -87,6 +94,16 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>2.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>1.2.12</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.21</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
