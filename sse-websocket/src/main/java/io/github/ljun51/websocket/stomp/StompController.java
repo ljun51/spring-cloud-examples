@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,11 +23,26 @@ public class StompController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
+    /**
+     * 广播消息
+     */
     @MessageMapping("/hello")
     @SendTo("/topic/hello")
-    public ResponseMessage hello(RequestMessage requestMessage) {
-        log.info("接收消息：{}", requestMessage);
-        return new ResponseMessage("服务端接收到你发的：" + requestMessage);
+    public ResponseMessage helloTopic(RequestMessage requestMessage) {
+        log.info("hello：{}", requestMessage);
+        return new ResponseMessage("我是广播投送消息：" + requestMessage);
+    }
+
+    /**
+     * 收到消息后精准投送到单个用户
+     *
+     * broadcast = false 避免把消息推送到同一个帐号不同的session中
+     */
+    @MessageMapping("/my")
+    @SendToUser(value = "/topic/my",broadcast = false)
+    public ResponseMessage myTopic(RequestMessage requestMessage){
+        log.info("hello：{}", requestMessage);
+        return new ResponseMessage("我是精准投送消息" + requestMessage);
     }
 
     @GetMapping("/sendMsgByUser")
