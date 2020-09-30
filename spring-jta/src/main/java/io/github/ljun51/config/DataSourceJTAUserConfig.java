@@ -24,7 +24,7 @@ public class DataSourceJTAUserConfig {
 
     @Bean
     @Primary
-    @ConfigurationProperties(prefix = "spring.jta.atomikos.datasource.jta-user")
+    @ConfigurationProperties(prefix = "stomp.jta.atomikos.datasource.jta-user")
     public DataSource dataSourceJTAUser() {
         return new AtomikosDataSourceBean();
     }

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-jta
+    name: stomp-jta
   jpa:
     show-sql: true
   jta:

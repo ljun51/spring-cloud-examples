@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-redis
+    name: stomp-redis
   redis:
     sentinel:
       password: abc12366

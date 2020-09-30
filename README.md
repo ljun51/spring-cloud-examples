@@ -181,7 +181,7 @@ Eureka客户端通常不会生成一个CSRF token，所以需要禁用`/eureka/*
         registerWithEureka: true
         fetchRegistry: true
         serviceUrl:
-          defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+          defaultZone: stomp
 ```
 
 ## circuit-breaker

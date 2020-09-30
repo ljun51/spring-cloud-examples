@@ -30,6 +30,6 @@ class ServiceInstanceRestController {
 
     @RequestMapping("/hello")
     public String home() {
-        return "hello spring cloud";
+        return "hello stomp cloud";
     }
 }

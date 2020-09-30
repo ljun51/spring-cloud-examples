@@ -13,7 +13,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @Component
-@ConfigurationProperties(prefix = "spring.redis.sentinel")
+@ConfigurationProperties(prefix = "stomp.redis.sentinel")
 public class RedisClusterConfig {
 
     String master;

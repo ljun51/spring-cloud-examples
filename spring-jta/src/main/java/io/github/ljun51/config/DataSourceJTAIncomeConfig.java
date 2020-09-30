@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 public class DataSourceJTAIncomeConfig {
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.jta.atomikos.datasource.jta-income")
+    @ConfigurationProperties(prefix = "stomp.jta.atomikos.datasource.jta-income")
     public DataSource dataSourceJTAIncome() {
         return new AtomikosDataSourceBean();
     }

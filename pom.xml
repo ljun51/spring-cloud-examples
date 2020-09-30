@@ -35,6 +35,7 @@
         <module>open-nacos-discovery</module>
         <module>open-nacos-gateway</module>
         <module>open-user</module>
+        <module>sse-websocket</module>
     </modules>
 
     <parent>

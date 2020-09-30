@@ -17,7 +17,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 public class DataSourceConfig {
 
     @Bean(name = "userDataSource", initMethod = "init", destroyMethod = "close")
-    @ConfigurationProperties(prefix = "spring.datasource.druid")
+    @ConfigurationProperties(prefix = "stomp.datasource.druid")
     public DruidDataSource userDataSource() {
         return new DruidDataSource();
     }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server-Sent Events client example with EventSource</title>
+</head>
+<body>
+    <div>
+        <p>请稍后，服务端正在推送消息</p>
+        <ul></ul>
+    </div>
+<script>
+    if (window.EventSource == null) {
+        alert('The browser does not support Server-Sent Events');
+    } else {
+        var eventSource = new EventSource('/sse/mvc/words');
+
+        eventSource.onopen = function () {
+            console.log('connection is established');
+        };
+
+        eventSource.onerror = function (error) {
+            console.log('connection state: ' + eventSource.readyState + ', error: ' + event);
+        };
+
+        var ul = document.querySelector('ul');
+
+        eventSource.onmessage = function (event) {
+            var txt = 'id: ' + event.lastEventId + ', data: ' + event.data;
+            console.log(txt);
+
+
+            var li = document.createElement('li');
+            var text = document.createTextNode(txt);
+            li.appendChild(text);
+            ul.append(li);
+            if (event.data.endsWith('.')) {
+                eventSource.close();
+                console.log('connection is closed');
+
+                li = document.createElement('li');
+                li.append('connection is closed');
+                ul.append(li);
+            }
+        };
+    }
+</script>
+</body>
+</html>
