@@ -17,4 +17,11 @@ public class MyMsg {
     public String getData() {
         return data;
     }
+
+    @Override
+    public String toString() {
+        return "MyMsg{" +
+                "data='" + data + '\'' +
+                '}';
+    }
 }
